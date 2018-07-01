@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>855</width>
+    <height>598</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Data Processing</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>dpf.png</normaloff>dpf.png</iconset>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableView" name="view"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="pushButton_Gr">
+        <property name="text">
+         <string>Group</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Ts">
+        <property name="text">
+         <string>Test</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Cr">
+        <property name="text">
+         <string>Color Row</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Ir">
+        <property name="text">
+         <string>Include Row</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Ty">
+        <property name="text">
+         <string>Type</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Gc">
+        <property name="text">
+         <string>Responce</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Cc">
+        <property name="text">
+         <string>Color Col.</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Ic">
+        <property name="text">
+         <string>Include Col.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>855</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuOpen">
+     <property name="title">
+      <string>Open</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>open.png</normaloff>open.png</iconset>
+     </property>
+     <addaction name="actionCSV"/>
+     <addaction name="actionXLS"/>
+     <addaction name="actionDPF"/>
+    </widget>
+    <addaction name="menuOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuData">
+    <property name="title">
+     <string>Data</string>
+    </property>
+    <addaction name="actionSend_to_Excel"/>
+    <addaction name="actionGet_from_Excel"/>
+    <addaction name="actionExport"/>
+    <addaction name="actionExclude"/>
+    <addaction name="actionMissing"/>
+    <addaction name="actionSplit"/>
+    <addaction name="actionGroups"/>
+   </widget>
+   <widget class="QMenu" name="menuEDA">
+    <property name="title">
+     <string>EDA</string>
+    </property>
+    <addaction name="actionUnivariate_Plot"/>
+    <addaction name="actionUnivariate_by_Groups"/>
+    <addaction name="actioUnivariate_by_Row"/>
+    <addaction name="separator"/>
+    <addaction name="actionBivariate_Plot"/>
+    <addaction name="actionBivariate_by_Groups"/>
+    <addaction name="actionBivariate_by_Row"/>
+    <addaction name="separator"/>
+    <addaction name="actionTrivariate_Plot"/>
+    <addaction name="separator"/>
+    <addaction name="actionMultivariate"/>
+    <addaction name="separator"/>
+    <addaction name="actionTime_Series"/>
+   </widget>
+   <widget class="QMenu" name="menuSTS">
+    <property name="title">
+     <string>STS</string>
+    </property>
+    <widget class="QMenu" name="menuTests">
+     <property name="title">
+      <string>Tests</string>
+     </property>
+     <addaction name="actionAverage_difference"/>
+    </widget>
+    <addaction name="actionSummary"/>
+    <addaction name="actionTranspose"/>
+    <addaction name="actionBinning"/>
+    <addaction name="actionRow_Unfolding"/>
+    <addaction name="separator"/>
+    <addaction name="menuTests"/>
+   </widget>
+   <widget class="QMenu" name="menuPLS">
+    <property name="title">
+     <string>PLS</string>
+    </property>
+    <addaction name="actionPLScompo"/>
+    <addaction name="actionPLSmodel"/>
+    <addaction name="separator"/>
+    <addaction name="actionPLSplot"/>
+    <addaction name="actionPLSweight"/>
+    <addaction name="separator"/>
+    <addaction name="actionPLSadditional"/>
+    <addaction name="separator"/>
+    <addaction name="actionPLSSave_Results_4"/>
+   </widget>
+   <widget class="QMenu" name="menuDOE">
+    <property name="title">
+     <string>DOE</string>
+    </property>
+    <addaction name="actionDOExp_Matrix"/>
+    <addaction name="separator"/>
+    <addaction name="actionDOEplots"/>
+    <addaction name="separator"/>
+    <addaction name="actionDOEanalysis"/>
+    <addaction name="separator"/>
+    <addaction name="actionDOESave_Results_5"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionGetting_Started"/>
+    <addaction name="actionColor_Name_Map"/>
+   </widget>
+   <widget class="QMenu" name="menuPCA">
+    <property name="title">
+     <string>PCA</string>
+    </property>
+    <addaction name="actionPCAcompo"/>
+    <addaction name="actionPCAmodel_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionPCAplot_2"/>
+    <addaction name="actionPCAscore_2"/>
+    <addaction name="actionPCAmixed_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionPCAadditional_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionPCASave_Results_3"/>
+   </widget>
+   <widget class="QMenu" name="menuRegression">
+    <property name="title">
+     <string>REG</string>
+    </property>
+    <addaction name="actionREGmodel"/>
+    <addaction name="separator"/>
+    <addaction name="actionREGeneral_Plots"/>
+    <addaction name="separator"/>
+    <addaction name="actionREGAdditional_Data"/>
+    <addaction name="separator"/>
+    <addaction name="actionREGSave_Results_2"/>
+   </widget>
+   <widget class="QMenu" name="menuCLA">
+    <property name="title">
+     <string>CLA</string>
+    </property>
+    <addaction name="actionK_Neighbors"/>
+    <addaction name="actionLinear_models"/>
+   </widget>
+   <widget class="QMenu" name="menuFIT">
+    <property name="title">
+     <string>FIT</string>
+    </property>
+    <addaction name="actionFITModel"/>
+    <addaction name="separator"/>
+    <addaction name="actionFITPlots"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdditional_Data"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_Results_2"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuData"/>
+   <addaction name="menuEDA"/>
+   <addaction name="menuSTS"/>
+   <addaction name="menuFIT"/>
+   <addaction name="menuCLA"/>
+   <addaction name="menuRegression"/>
+   <addaction name="menuPCA"/>
+   <addaction name="menuPLS"/>
+   <addaction name="menuDOE"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSave_Results">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Results</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset>
+     <normaloff>exit.png</normaloff>exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionSend_to_Excel">
+   <property name="icon">
+    <iconset>
+     <normaloff>send.png</normaloff>send.png</iconset>
+   </property>
+   <property name="text">
+    <string>Send to Excel</string>
+   </property>
+  </action>
+  <action name="actionGet_from_Excel">
+   <property name="icon">
+    <iconset>
+     <normaloff>get.png</normaloff>get.png</iconset>
+   </property>
+   <property name="text">
+    <string>Get from Excel</string>
+   </property>
+  </action>
+  <action name="actionNull_Rows">
+   <property name="text">
+    <string>Remove Rows</string>
+   </property>
+  </action>
+  <action name="actionNull_Columns">
+   <property name="text">
+    <string>Remove Columns</string>
+   </property>
+  </action>
+  <action name="actionNUll_Rows">
+   <property name="text">
+    <string>Null Rows</string>
+   </property>
+  </action>
+  <action name="actionNUll_Columns">
+   <property name="text">
+    <string>Nul Columns</string>
+   </property>
+  </action>
+  <action name="actionFill_Farward">
+   <property name="text">
+    <string>Fill Farward</string>
+   </property>
+  </action>
+  <action name="actionFill_Backward">
+   <property name="text">
+    <string>Fill Backward</string>
+   </property>
+  </action>
+  <action name="actionFill_with_Constant">
+   <property name="text">
+    <string>Fill with Constant</string>
+   </property>
+  </action>
+  <action name="actionAverage">
+   <property name="text">
+    <string>Average</string>
+   </property>
+  </action>
+  <action name="actionInterpolate">
+   <property name="text">
+    <string>Interpolate</string>
+   </property>
+  </action>
+  <action name="actionPCA_reconstrction">
+   <property name="text">
+    <string>PCA reconstrction</string>
+   </property>
+  </action>
+  <action name="actionBox_Plot">
+   <property name="text">
+    <string>Box Plot</string>
+   </property>
+  </action>
+  <action name="actionBox_Cox_Normality_Plot">
+   <property name="text">
+    <string>Box Cox Normality Plot</string>
+   </property>
+  </action>
+  <action name="actionNormal_Probability_Plot">
+   <property name="text">
+    <string>Normal Probability Plot</string>
+   </property>
+  </action>
+  <action name="actionProbability_Plot_Correlation_Coefficients">
+   <property name="text">
+    <string>Probability Plot Correlation Coefficients</string>
+   </property>
+  </action>
+  <action name="actionBootstrap_Plot">
+   <property name="text">
+    <string>Bootstrap Plot</string>
+   </property>
+  </action>
+  <action name="actionHistogram">
+   <property name="text">
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionRow_Scatter_Plot">
+   <property name="text">
+    <string>Row Scatter Plot</string>
+   </property>
+  </action>
+  <action name="actionColumn_Scatter_Plot">
+   <property name="text">
+    <string>Column Scatter Plot</string>
+   </property>
+  </action>
+  <action name="actionEllipse_Plot">
+   <property name="text">
+    <string>Ellipse Plot</string>
+   </property>
+  </action>
+  <action name="actionSlide_Plot">
+   <property name="text">
+    <string>Slide Plot</string>
+   </property>
+  </action>
+  <action name="actionBox_Cox_Linearity_Plot">
+   <property name="text">
+    <string>Box Cox Linearity Plot</string>
+   </property>
+  </action>
+  <action name="actionProbability_Plot">
+   <property name="text">
+    <string>Probability Plot</string>
+   </property>
+  </action>
+  <action name="actionBi_Hstogram_Plot">
+   <property name="text">
+    <string>Bi Hstogram Plot</string>
+   </property>
+  </action>
+  <action name="actionLeast_Squares_Fitting">
+   <property name="text">
+    <string>Least Squares Fitting</string>
+   </property>
+  </action>
+  <action name="actionContour_Plot">
+   <property name="text">
+    <string>Contour Plot</string>
+   </property>
+  </action>
+  <action name="actionAutocorrelation_Plot">
+   <property name="text">
+    <string>Autocorrelation Plot</string>
+   </property>
+  </action>
+  <action name="actionSpectrum_Plot">
+   <property name="text">
+    <string>Spectrum Plot</string>
+   </property>
+  </action>
+  <action name="actionStar_Plot">
+   <property name="text">
+    <string>Star Plot</string>
+   </property>
+  </action>
+  <action name="actionScatter_Matrix_Plot">
+   <property name="text">
+    <string>Scatter Matrix Plot</string>
+   </property>
+  </action>
+  <action name="actionConditioning_Plot">
+   <property name="text">
+    <string>Conditioning Plot</string>
+   </property>
+  </action>
+  <action name="actionTime_Series_and_Multivariate">
+   <property name="text">
+    <string>Time Series and Multivariate</string>
+   </property>
+  </action>
+  <action name="actionSummary">
+   <property name="icon">
+    <iconset>
+     <normaloff>summary.png</normaloff>summary.png</iconset>
+   </property>
+   <property name="text">
+    <string>Summary</string>
+   </property>
+  </action>
+  <action name="actionDifference">
+   <property name="text">
+    <string>Difference </string>
+   </property>
+  </action>
+  <action name="actionTranspose">
+   <property name="icon">
+    <iconset>
+     <normaloff>trans.png</normaloff>trans.png</iconset>
+   </property>
+   <property name="text">
+    <string>Transpose</string>
+   </property>
+  </action>
+  <action name="actionBinning">
+   <property name="icon">
+    <iconset>
+     <normaloff>bin.png</normaloff>bin.png</iconset>
+   </property>
+   <property name="text">
+    <string>Binning</string>
+   </property>
+  </action>
+  <action name="actionRow_Unfolding">
+   <property name="icon">
+    <iconset>
+     <normaloff>row.png</normaloff>row.png</iconset>
+   </property>
+   <property name="text">
+    <string>Row Unfolding</string>
+   </property>
+  </action>
+  <action name="actionPCAcomponent">
+   <property name="icon">
+    <iconset>
+     <normaloff>number.png</normaloff>number.png</iconset>
+   </property>
+   <property name="text">
+    <string>Comp.Number</string>
+   </property>
+  </action>
+  <action name="actionPCAmodel">
+   <property name="icon">
+    <iconset>
+     <normaloff>model.png</normaloff>model.png</iconset>
+   </property>
+   <property name="text">
+    <string>Model</string>
+   </property>
+  </action>
+  <action name="actionVariance">
+   <property name="text">
+    <string>Variance</string>
+   </property>
+  </action>
+  <action name="actionVariance_Cumulate">
+   <property name="text">
+    <string>Variance Cumulate</string>
+   </property>
+  </action>
+  <action name="actionLoadings">
+   <property name="text">
+    <string>Loadings</string>
+   </property>
+  </action>
+  <action name="actionScores">
+   <property name="text">
+    <string>Scores</string>
+   </property>
+  </action>
+  <action name="actionEllipse">
+   <property name="text">
+    <string>Ellipse</string>
+   </property>
+  </action>
+  <action name="actionKernel_SVM">
+   <property name="text">
+    <string>Kernel SVM</string>
+   </property>
+  </action>
+  <action name="actionT_2_Hotelling">
+   <property name="text">
+    <string>T^2  Hotelling</string>
+   </property>
+  </action>
+  <action name="actionQ_SPE">
+   <property name="text">
+    <string>Q - SPE</string>
+   </property>
+  </action>
+  <action name="actionSPE_Contribution">
+   <property name="text">
+    <string>SPE Contribution</string>
+   </property>
+  </action>
+  <action name="actionColumn_REsidual_Plot">
+   <property name="text">
+    <string>Column Residual Plot</string>
+   </property>
+  </action>
+  <action name="actionCV_Prediction">
+   <property name="text">
+    <string>CV Prediction</string>
+   </property>
+  </action>
+  <action name="actionPCAscore">
+   <property name="icon">
+    <iconset>
+     <normaloff>score.png</normaloff>score.png</iconset>
+   </property>
+   <property name="text">
+    <string>Score Contribution Plots</string>
+   </property>
+  </action>
+  <action name="actionPoint_to_Point">
+   <property name="text">
+    <string>Point to Point </string>
+   </property>
+  </action>
+  <action name="actionPoint_to_Average">
+   <property name="text">
+    <string>Point to Average</string>
+   </property>
+  </action>
+  <action name="actionGroup_t_Group">
+   <property name="text">
+    <string>Group t Group</string>
+   </property>
+  </action>
+  <action name="actionLoading_vs_Variables">
+   <property name="text">
+    <string>Loading vs. Variables</string>
+   </property>
+  </action>
+  <action name="actionVariable_vs_Scores">
+   <property name="text">
+    <string>Variable vs Scores</string>
+   </property>
+  </action>
+  <action name="actionPCR_Regression">
+   <property name="text">
+    <string>PCR Regression</string>
+   </property>
+  </action>
+  <action name="actionPLScompo">
+   <property name="icon">
+    <iconset>
+     <normaloff>number.png</normaloff>number.png</iconset>
+   </property>
+   <property name="text">
+    <string>Compo.Number</string>
+   </property>
+  </action>
+  <action name="actionPLSmodel">
+   <property name="icon">
+    <iconset>
+     <normaloff>model.png</normaloff>model.png</iconset>
+   </property>
+   <property name="text">
+    <string>Model</string>
+   </property>
+  </action>
+  <action name="actionAll_Fitted_Values">
+   <property name="text">
+    <string>All Fitted Values</string>
+   </property>
+  </action>
+  <action name="actionFitted_Values">
+   <property name="text">
+    <string>Fitted Values</string>
+   </property>
+  </action>
+  <action name="actionCoefficients">
+   <property name="text">
+    <string>Coefficients</string>
+   </property>
+  </action>
+  <action name="actionW_i_space">
+   <property name="text">
+    <string>W*i space</string>
+   </property>
+  </action>
+  <action name="actionQi_Space">
+   <property name="text">
+    <string>Qi space</string>
+   </property>
+  </action>
+  <action name="actionW_Qi_space">
+   <property name="text">
+    <string>W*Qi space</string>
+   </property>
+  </action>
+  <action name="actionScores_2">
+   <property name="text">
+    <string>Scores</string>
+   </property>
+  </action>
+  <action name="actionT_2_Hotelling_2">
+   <property name="text">
+    <string>T^2 Hotelling</string>
+   </property>
+  </action>
+  <action name="actionSPE_X">
+   <property name="text">
+    <string>SPE X</string>
+   </property>
+  </action>
+  <action name="actionSPE_Y">
+   <property name="text">
+    <string>SPE Y</string>
+   </property>
+  </action>
+  <action name="actionRelationship_T_vs_U">
+   <property name="text">
+    <string>Relationship: T vs. U</string>
+   </property>
+  </action>
+  <action name="actionCV_Prediction_2">
+   <property name="text">
+    <string>CV Prediction</string>
+   </property>
+  </action>
+  <action name="actionVIP">
+   <property name="text">
+    <string>VIP</string>
+   </property>
+  </action>
+  <action name="actionPoint_to_Point_2">
+   <property name="text">
+    <string>Point to Point</string>
+   </property>
+  </action>
+  <action name="actionPoint_to_Average_2">
+   <property name="text">
+    <string>Point to Average</string>
+   </property>
+  </action>
+  <action name="actionGroup_to_Group">
+   <property name="text">
+    <string>Group to Group</string>
+   </property>
+  </action>
+  <action name="actionDOEmodel">
+   <property name="icon">
+    <iconset>
+     <normaloff>model.png</normaloff>model.png</iconset>
+   </property>
+   <property name="text">
+    <string>Model</string>
+   </property>
+  </action>
+  <action name="actionDOEanalysis">
+   <property name="icon">
+    <iconset>
+     <normaloff>analysis.png</normaloff>analysis.png</iconset>
+   </property>
+   <property name="text">
+    <string>Analysis</string>
+   </property>
+  </action>
+  <action name="actionAnova">
+   <property name="text">
+    <string>Anova</string>
+   </property>
+  </action>
+  <action name="actionCoefficients_2">
+   <property name="text">
+    <string>Coefficients</string>
+   </property>
+  </action>
+  <action name="actionPredictions">
+   <property name="text">
+    <string>Predictions</string>
+   </property>
+  </action>
+  <action name="actionResiduals">
+   <property name="text">
+    <string>Residuals</string>
+   </property>
+  </action>
+  <action name="actionOptimal">
+   <property name="text">
+    <string>Optimal</string>
+   </property>
+  </action>
+  <action name="actionFactorial_2_levels">
+   <property name="text">
+    <string>Factorial 2 levels</string>
+   </property>
+  </action>
+  <action name="actionFull_Factorial">
+   <property name="text">
+    <string>Full Factorial</string>
+   </property>
+  </action>
+  <action name="actionPluckett_Burman_2_level">
+   <property name="text">
+    <string>Pluckett-Burman 2 level</string>
+   </property>
+  </action>
+  <action name="actionOrdered">
+   <property name="text">
+    <string>Ordered</string>
+   </property>
+  </action>
+  <action name="actionMain_Effect_Scatter">
+   <property name="text">
+    <string>Main Effect (Scatter)</string>
+   </property>
+  </action>
+  <action name="actionMean">
+   <property name="text">
+    <string>Mean</string>
+   </property>
+  </action>
+  <action name="actionBlock_REsponce">
+   <property name="text">
+    <string>Block REsponce</string>
+   </property>
+  </action>
+  <action name="actionBlock_Responce_vs_Factors">
+   <property name="text">
+    <string>Block Responce vs. Factors</string>
+   </property>
+  </action>
+  <action name="actionInteraction">
+   <property name="text">
+    <string>Interaction</string>
+   </property>
+  </action>
+  <action name="actionYouden">
+   <property name="text">
+    <string>Youden</string>
+   </property>
+  </action>
+  <action name="action_Effects">
+   <property name="text">
+    <string>|Effects|</string>
+   </property>
+  </action>
+  <action name="actionHalf_Normal">
+   <property name="text">
+    <string>Half Normal</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset>
+     <normaloff>about.png</normaloff>about.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionGetting_Started">
+   <property name="icon">
+    <iconset>
+     <normaloff>Help.png</normaloff>Help.png</iconset>
+   </property>
+   <property name="text">
+    <string>Getting Started</string>
+   </property>
+  </action>
+  <action name="actionColor_Name_Map">
+   <property name="icon">
+    <iconset>
+     <normaloff>color.png</normaloff>color.png</iconset>
+   </property>
+   <property name="text">
+    <string>Color Name Map</string>
+   </property>
+  </action>
+  <action name="actionCSV">
+   <property name="icon">
+    <iconset>
+     <normaloff>csv.png</normaloff>csv.png</iconset>
+   </property>
+   <property name="text">
+    <string>CSV</string>
+   </property>
+  </action>
+  <action name="actionXLS">
+   <property name="icon">
+    <iconset>
+     <normaloff>xls.png</normaloff>xls.png</iconset>
+   </property>
+   <property name="text">
+    <string>XLS/XLSX</string>
+   </property>
+  </action>
+  <action name="actionDPF">
+   <property name="icon">
+    <iconset>
+     <normaloff>dpf.png</normaloff>dpf.png</iconset>
+   </property>
+   <property name="text">
+    <string>DPF</string>
+   </property>
+  </action>
+  <action name="actionUnivariate_Plot">
+   <property name="icon">
+    <iconset>
+     <normaloff>1.png</normaloff>1.png</iconset>
+   </property>
+   <property name="text">
+    <string>Univariate Plot</string>
+   </property>
+  </action>
+  <action name="actionExclude">
+   <property name="icon">
+    <iconset>
+     <normaloff>exclude.png</normaloff>exclude.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exclude</string>
+   </property>
+  </action>
+  <action name="actionMissing">
+   <property name="icon">
+    <iconset>
+     <normaloff>miss.png</normaloff>miss.png</iconset>
+   </property>
+   <property name="text">
+    <string>Missing</string>
+   </property>
+  </action>
+  <action name="actionBivariate_Plot">
+   <property name="icon">
+    <iconset>
+     <normaloff>2.png</normaloff>2.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bivariate Plot</string>
+   </property>
+  </action>
+  <action name="actionTrivariate_Plot">
+   <property name="icon">
+    <iconset>
+     <normaloff>3.png</normaloff>3.png</iconset>
+   </property>
+   <property name="text">
+    <string>Trivariate Plot</string>
+   </property>
+  </action>
+  <action name="actionUnivariate_by_Groups">
+   <property name="text">
+    <string>Univariate by Groups</string>
+   </property>
+  </action>
+  <action name="actionBivariate_by_Groups">
+   <property name="text">
+    <string>Bivariate by Groups</string>
+   </property>
+  </action>
+  <action name="actionMultivariate">
+   <property name="icon">
+    <iconset>
+     <normaloff>M.png</normaloff>M.png</iconset>
+   </property>
+   <property name="text">
+    <string>Multivariate</string>
+   </property>
+  </action>
+  <action name="actionRegression">
+   <property name="icon">
+    <iconset>
+     <normaloff>regre.png</normaloff>regre.png</iconset>
+   </property>
+   <property name="text">
+    <string>Regression</string>
+   </property>
+  </action>
+  <action name="actionTime_Series">
+   <property name="icon">
+    <iconset>
+     <normaloff>LT.png</normaloff>LT.png</iconset>
+   </property>
+   <property name="text">
+    <string>Time Series</string>
+   </property>
+  </action>
+  <action name="actionAverage_difference">
+   <property name="text">
+    <string>Average difference</string>
+   </property>
+  </action>
+  <action name="actionPCAplot">
+   <property name="icon">
+    <iconset>
+     <normaloff>plot.png</normaloff>plot.png</iconset>
+   </property>
+   <property name="text">
+    <string>General Plots</string>
+   </property>
+  </action>
+  <action name="actionPCAadditional">
+   <property name="icon">
+    <iconset>
+     <normaloff>add.png</normaloff>add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Additional Data</string>
+   </property>
+  </action>
+  <action name="actionPCAmixed">
+   <property name="icon">
+    <iconset>
+     <normaloff>mixed.png</normaloff>mixed.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mixed Plots</string>
+   </property>
+  </action>
+  <action name="actionPLSplot">
+   <property name="icon">
+    <iconset>
+     <normaloff>plot.png</normaloff>plot.png</iconset>
+   </property>
+   <property name="text">
+    <string>General Plots</string>
+   </property>
+  </action>
+  <action name="actionPLSadditional">
+   <property name="icon">
+    <iconset>
+     <normaloff>add.png</normaloff>add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Additional Data</string>
+   </property>
+  </action>
+  <action name="actionPLSweight">
+   <property name="icon">
+    <iconset>
+     <normaloff>score.png</normaloff>score.png</iconset>
+   </property>
+   <property name="text">
+    <string>Weight Contribution Plots</string>
+   </property>
+  </action>
+  <action name="actionPCAmodel_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>model.png</normaloff>model.png</iconset>
+   </property>
+   <property name="text">
+    <string>Model</string>
+   </property>
+  </action>
+  <action name="actionPCAcompo">
+   <property name="icon">
+    <iconset>
+     <normaloff>number.png</normaloff>number.png</iconset>
+   </property>
+   <property name="text">
+    <string>Comp.Number</string>
+   </property>
+  </action>
+  <action name="actionPCAplot_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>plot.png</normaloff>plot.png</iconset>
+   </property>
+   <property name="text">
+    <string>General Plots</string>
+   </property>
+  </action>
+  <action name="actionPCAscore_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>score.png</normaloff>score.png</iconset>
+   </property>
+   <property name="text">
+    <string>Score Contribution Plots</string>
+   </property>
+  </action>
+  <action name="actionPCAmixed_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>mixed.png</normaloff>mixed.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mixed Plots</string>
+   </property>
+  </action>
+  <action name="actionPCAadditional_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>add.png</normaloff>add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Additional Data</string>
+   </property>
+  </action>
+  <action name="actionDOEplots">
+   <property name="icon">
+    <iconset>
+     <normaloff>plot.png</normaloff>plot.png</iconset>
+   </property>
+   <property name="text">
+    <string>General Plots</string>
+   </property>
+  </action>
+  <action name="actionDOExp_Matrix">
+   <property name="icon">
+    <iconset>
+     <normaloff>matrix.png</normaloff>matrix.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exp. Matrix</string>
+   </property>
+  </action>
+  <action name="actionRegression_2">
+   <property name="text">
+    <string>Regression</string>
+   </property>
+  </action>
+  <action name="actionREGmodel">
+   <property name="icon">
+    <iconset>
+     <normaloff>model.png</normaloff>model.png</iconset>
+   </property>
+   <property name="text">
+    <string>Model</string>
+   </property>
+  </action>
+  <action name="actionREGeneral_Plots">
+   <property name="icon">
+    <iconset>
+     <normaloff>plot.png</normaloff>plot.png</iconset>
+   </property>
+   <property name="text">
+    <string>General Plots</string>
+   </property>
+  </action>
+  <action name="actionREGSave_Results_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Results</string>
+   </property>
+  </action>
+  <action name="actionPCASave_Results_3">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Results</string>
+   </property>
+  </action>
+  <action name="actionPLSSave_Results_4">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Results</string>
+   </property>
+  </action>
+  <action name="actionDOESave_Results_5">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Results</string>
+   </property>
+  </action>
+  <action name="actionK_Neighbors">
+   <property name="text">
+    <string>K-Neighbors</string>
+   </property>
+  </action>
+  <action name="actionSplit">
+   <property name="icon">
+    <iconset>
+     <normaloff>split.png</normaloff>split.png</iconset>
+   </property>
+   <property name="text">
+    <string>Split</string>
+   </property>
+  </action>
+  <action name="actionLinear_models">
+   <property name="text">
+    <string>Linear Models</string>
+   </property>
+  </action>
+  <action name="actionLinear_SVN">
+   <property name="text">
+    <string>Linear SVC</string>
+   </property>
+  </action>
+  <action name="actionLogistic">
+   <property name="text">
+    <string>Logistic</string>
+   </property>
+  </action>
+  <action name="actionFITModel">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Model</string>
+   </property>
+  </action>
+  <action name="actionREGAdditional_Data">
+   <property name="icon">
+    <iconset>
+     <normaloff>add.png</normaloff>add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Additional Data</string>
+   </property>
+  </action>
+  <action name="actionGroups">
+   <property name="icon">
+    <iconset>
+     <normaloff>group.png</normaloff>group.png</iconset>
+   </property>
+   <property name="text">
+    <string>Groups</string>
+   </property>
+  </action>
+  <action name="actionInclude">
+   <property name="icon">
+    <iconset>
+     <normaloff>include.png</normaloff>include.png</iconset>
+   </property>
+   <property name="text">
+    <string>Include</string>
+   </property>
+  </action>
+  <action name="actioUnivariate_by_Row">
+   <property name="text">
+    <string>Univariate by Row</string>
+   </property>
+  </action>
+  <action name="actionBivariate_by_Row">
+   <property name="text">
+    <string>Bivariate by Row</string>
+   </property>
+  </action>
+  <action name="actionFITPlots">
+   <property name="icon">
+    <iconset>
+     <normaloff>plot.png</normaloff>plot.png</iconset>
+   </property>
+   <property name="text">
+    <string>General Plots</string>
+   </property>
+  </action>
+  <action name="actionAdditional_Data">
+   <property name="icon">
+    <iconset>
+     <normaloff>add.png</normaloff>add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Additional Data</string>
+   </property>
+  </action>
+  <action name="actionSave_Results_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Results</string>
+   </property>
+  </action>
+  <action name="actionView">
+   <property name="icon">
+    <iconset>
+     <normaloff>view.png</normaloff>view.png</iconset>
+   </property>
+   <property name="text">
+    <string>View</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="icon">
+    <iconset>
+     <normaloff>export.png</normaloff>export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export Settings</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>25</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
